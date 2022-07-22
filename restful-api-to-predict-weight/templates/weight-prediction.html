@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Weight Prediction</title>
+</head>
+
+<body class="bg-slate-800">
+    <!-- component -->
+    <!-- component -->
+    <div class="bg-slate-900 min-h-screen pt-4 font-sans my-16">
+        <div class="container flex mx-auto">
+            <div class="inputs bg-gray-800 shadow-md rounded-lg w-full max-w-2xl mx-2.5 p-6">
+                <h2 class="text-2xl text-slate-200">Prediksi Berat Badan</h2>
+                <form class="mt-6 border-t border-slate-500 pt-4" method="POST" action="">
+                    <div class='flex flex-wrap -mx-3 mb-6'>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-slate-300 text-xs font-bold mb-2'
+                                for='grid-text-3'>Jenis Kelamin</label>
+                            <select name="jenis_kelamin" id="grid-text-3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <option value="" disabled selected>- Pilih jenis kelamin -</option>
+                                <option value="1">Laki-laki</option>
+                                <option value="0">Perempuan</option>
+                              </select>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-slate-300 text-xs font-bold mb-2'
+                                for='grid-text-4'>Tinggi Badan</label>
+                            <input type="text"
+                                class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                id='grid-text-4' type='text' placeholder='Masukkan tinggi badan (cm)'
+                                name="tinggi_badan" required>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            type="submit" onclick="showInput()">Prediksi</button>
+                    </div>
+                </form>
+            </div>
+            {% if result is defined %}
+            <div class="prediction-result w-full max-w-2xl p-6">
+                <h2 class="text-2xl text-gray-900">Hasil Prediksi Berat Badan</h2>
+                <img class="my-3 rounded-lg" src="static/img/weight.png" alt="berat badan">
+                <h2 class="mx-auto text-3xl text-center px-2 py-2 bg-gray-300 rounded rounded-lg mt-5">{{result}}</h1>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
